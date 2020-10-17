@@ -2,14 +2,16 @@ from django.db import models
 
 # movies table
 class Movie(models.Model):
-    movie_no          = models.AutoField(primary_key=True)
-    poster_img        = models.URLField(max_length=500,)
-    name              = models.CharField(max_length=50,)
-    openning_date     = models.DateTimeField(auto_now_add=True)
-    grade             = models.DecimalField(max_digits=4, decimal_places=2)
-    running_time      = models.IntegerField()
-    introduction      = models.TextField(max_length=2000)
-    number_of_viewers = models.IntegerField(default=0)
+    movie_no          = models.AutoField(primary_key=True) # PK
+    poster_img        = models.URLField(max_length=500) # 포스터 사진
+    name              = models.CharField(max_length=50) # 이름(제목)
+    star_rating       = models.DecimalField(max_digits=3, decimal_places=1, default=00.0) # 평점
+    openning_date     = models.DateTimeField(auto_now_add=True) # 개봉일
+    number_of_viewers = models.IntegerField(default=0, null=True) # 누적 관객수
+    running_time      = models.IntegerField() # 러닝 타임
+    summary           = models.TextField(max_length=2000) # 줄거리
+    country           = models.CharField(max_length=30) # 제작 국가
+    rateing           = models.CharField(max_length=30) # 영화 등급
 
     class Meta:
         db_table='movies'
