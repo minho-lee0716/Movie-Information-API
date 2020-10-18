@@ -9,32 +9,23 @@ class Movie(models.Model):
     openning_date          = models.DateField(auto_now_add=True) # 개봉일
     number_of_viewers      = models.IntegerField(default=0) # 누적 관객수
     country_of_manufacture = models.CharField(max_length=30, default='') # 제작 국가
+    genre                  = models.ForeignKey('Genre', on_delete=models.SET_NULL, null=True) # foreignkey to Genre table
     movie_rateing          = models.CharField(max_length=30, default='') # 영화 등급
     running_time           = models.IntegerField(default=0) # 러닝 타임(분 단위)
-    summary                = models.TextField(max_length=300, default='') # 줄거리
+    summary                = models.CharField(max_length=300, default='') # 줄거리
 
     class Meta:
         db_table='movies'
 
-# types table
+# genres table
 class Genre(models.Model):
     genre_no = models.AutoField(primary_key=True) # PK
     name     = models.CharField(max_length=30) # 장르 이름
-    to_Movie = models.ManyToManyField(Movie, through='MovieGenre') # many to many field
 
     class Meta:
         db_table='genres'
 
-# movies_types table(Many to Many)
-class MovieGenre(models.Model):
-    movie_genre_no = models.AutoField(primary_key=True)
-    movie_id       = models.ForeignKey(Movie, on_delete=models.SET_NULL, null=True)
-    genre_id       = models.ForeignKey(Genre, on_delete=models.SET_NULL, null=True)
-
-    class Meta:
-        db_table='movies_genres'
-
-# actor table
+# actors table
 class Actor(models.Model):
     actor_no = models.AutoField(primary_key=True) # PK
     name     = models.CharField(max_length=30) # 배우 이름
@@ -43,11 +34,11 @@ class Actor(models.Model):
     class Meta:
         db_table='actors'
 
-# movies_actors table(Many to Many)
+# movies_actors table
 class MovieActor(models.Model):
     movie_actor_no = models.AutoField(primary_key=True)
-    movie_id       = models.ForeignKey(Movie, on_delete=models.SET_NULL, null=True)
-    actor_id       = models.ForeignKey(Actor, on_delete=models.SET_NULL, null=True)
+    movie          = models.ForeignKey(Movie, on_delete=models.SET_NULL, null=True)
+    actor          = models.ForeignKey(Actor, on_delete=models.SET_NULL, null=True)
 
     class Meta:
         db_table='movies_actors'
@@ -61,11 +52,11 @@ class Director(models.Model):
     class Meta:
         db_table='directors'
 
-# movies_directors table(Many to Many)
+# movies_directors table
 class MovieDirector(models.Model):
     movie_director_no = models.AutoField(primary_key=True)
-    movie_id          = models.ForeignKey(Movie, on_delete=models.SET_NULL, null=True)
-    director_id       = models.ForeignKey(Director, on_delete=models.SET_NULL, null=True)
+    movie             = models.ForeignKey(Movie, on_delete=models.SET_NULL, null=True)
+    director          = models.ForeignKey(Director, on_delete=models.SET_NULL, null=True)
 
     class Meta:
         db_table='movies_directors'
