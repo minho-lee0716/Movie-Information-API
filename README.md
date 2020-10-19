@@ -27,14 +27,14 @@ movies 테이블과 1:N 관계를 만들어야 하는데 그러지 못했습니�
 ***
 
 ## 초기화/빌드/테스트 방법
-**❗️manage.py가 있는 곳을 home이라고 칭하겠습니다.**
-**❗️Django의 포트는 8000입니다. 따라서 http://localhost:8000/movie로 EndPoint에 접근해 주시면 됩니다.
+- **❗️manage.py가 있는 곳을 home이라고 칭하겠습니다.**
+- **❗️Django의 포트는 8000입니다. 따라서 http://localhost:8000/movie로 EndPoint에 접근해 주시면 됩니다.
 
-git clone을 해주세요.
-가상환경을 하나 만드시고, `pip install -r requirements.txt`를 해주세요.
-가상환경에 MySQL도 설치를 한 후, primary 파일에 해당 Local DB의 정보를 입력해 주세요.(USER, PASSWORD, HOST)
-Local DB에 접속 후, `create database ticket_place character set utf8mb4 collate utf8mb4_general_ci;`명령어로 DB를 만들어주세요.
-home에서 `python manage.py migrate` 명령어를 실행해 주어 DB에 테이블들을 만들어주세요.
-home에서 `python db_uploader.py` 명령어로 csv 파일에 있는 데이터를 DB에 넣어주세요.
-home에서 `python manage.py runserver`명령어를 이용해 서버를 실행 해주세요.
-PostmanDoc을 보시면서 테스트 해보실 EndPoint에 요청을 보내시면 됩니다.
+1. git clone을 해주세요.
+2. 가상환경을 하나 만드시고, `pip install -r requirements.txt`를 해주세요.
+3. 가상환경에 MySQL도 설치를 한 후, primary 파일에 해당 Local DB의 정보를 입력해 주세요.(USER, PASSWORD, HOST)
+4. Local DB에 접속 후, `create database ticket_place character set utf8mb4 collate utf8mb4_general_ci;`명령어로 DB를 만들어주세요.
+5. home에서 `python manage.py migrate` 명령어를 실행해 주어 DB에 테이블들을 만들어주세요.
+6. home에서 `python db_uploader.py` 명령어로 csv 파일에 있는 데이터를 DB에 넣어주세요.
+7. home에서 `python manage.py runserver`명령어를 이용해 서버를 실행 해주세요.
+8. PostmanDoc을 보시면서 테스트 해보실 EndPoint에 요청을 보내시면 됩니다.
