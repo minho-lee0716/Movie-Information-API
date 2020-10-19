@@ -11,24 +11,25 @@
 - Restful API
 
 ## 📜 PostmanDoc(EndPoint)
-- [Link] [https://documenter.getpostman.com/view/11974452/TVYAffuq]
+- PostmanDoc URL : https://documenter.getpostman.com/view/11974452/TVYAffuq
 ***
 
 ## 💻 AQueryTool(Modeling)
-- [Link] [https://aquerytool.com:443/aquerymain/index/?rurl=1ed34911-e566-4df4-9b99-86108c1fb6ec&]
+- AQueryTool URL : https://aquerytool.com:443/aquerymain/index/?rurl=1ed34911-e566-4df4-9b99-86108c1fb6ec&
 - Password : x17f1d
 
-- 해당 사이트에서 모델링을 진행하였고, 크롤링을 한 사이트는 '다음'입니다.
-- [Link] [https://search.daum.net/search?w=tot&q=%EC%97%AD%EB%8C%80%EA%B4%80%EA%B0%9D%EC%88%9C%EC%9C%84&DA=MOR&rtmaxcoll=MOR]
 - movies 테이블에서 'country_of_manufacture'라는 필드를 없애고 새로 테이블을 만든 후,
 movies 테이블과 1:N 관계를 만들어야 하는데 그러지 못했습니다.
 
 - 크롤링을 진행한 후, csv파일로 migrate된 DB에 db_uploader 파일로 데이터를 넣어줬습니다.
+
+- 해당 사이트에서 모델링을 진행하였고, 크롤링을 한 사이트는 '다음'입니다. 아래 링크 첨부하겠습니다.
+- https://search.daum.net/search?w=tot&q=%EC%97%AD%EB%8C%80%EA%B4%80%EA%B0%9D%EC%88%9C%EC%9C%84&DA=MOR&rtmaxcoll=MOR
 ***
 
-## 초기화/빌드/테스트 방법
+## 🛠초기화/빌드/테스트 방법
 - **❗️manage.py가 있는 곳을 home이라고 칭하겠습니다.**
-- **❗️Django의 포트는 8000입니다. 따라서 http://localhost:8000/movie로 EndPoint에 접근해 주시면 됩니다.
+- **❗️Django의 포트는 8000입니다. 따라서 `http://localhost:8000/movie`로 EndPoint에 접근해 주시면 됩니다.**
 
 1. git clone을 해주세요.
 2. 가상환경을 하나 만드시고, `pip install -r requirements.txt`를 해주세요.
